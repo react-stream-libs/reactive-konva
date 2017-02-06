@@ -28,8 +28,9 @@ deployment:
     commands:
       - git config user.email "devdoomari@gmail.com"
       - git config user.name "devdoomari.circleci"
+      - git fetch
       - git checkout -b master
-      - git pull
+      - git pull origin develop
       - git merge -X theirs --no-edit develop
       - npm run build
       - git add -f lib
