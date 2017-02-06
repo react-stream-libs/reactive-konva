@@ -15,7 +15,7 @@ dependencies:
       ; fi
   post:
     - sudo dpkg -i $HOME/.local/debs/*.deb
-    - cd $HOME/reactive-pixi
+    - cd $HOME/reactive-konva
     - npm install
 
 test:
