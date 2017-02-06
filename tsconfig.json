@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "allowJs": false,
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "rootDirs": [
+      "src", "docs_src"
+    ],
+    "outDir": "docs"
+  },
+  "filesGlob": [
+    "src/*.ts",
+    "src/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "node_modules/**/*.d.ts"
+  ],
+  "exclude": [
+    "docs_src",
+    "node_modules",
+    "!node_modules/rxjs",
+    "lib",
+    "lib_es6",
+    "examples",
+    "src_old",
+    "webpack"
+  ],
+  "compileOnSave": false
+}

@@ -1,0 +1,8 @@
+node_modules
+lib
+lib_es6
+npm-debug.log*
+dist
+docs_src/*.js
+docs_src/**/*.js
+docs
