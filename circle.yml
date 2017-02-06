@@ -38,4 +38,4 @@ deployment:
       - git add -f docs
       - git commit --allow-empty -m $'generated from:'"$CIRCLE_SHA1"$'\ntriggered by:'"$CIRCLE_USERNAME"$'\n[ci skip]'
       - git tag -a $'master_'"$CIRCLE_BUILD_NUM" -m "master"
-      - git push origin master --follow-tags
+      - git push origin master --follow-tags --force
