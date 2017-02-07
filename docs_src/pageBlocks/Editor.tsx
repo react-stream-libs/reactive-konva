@@ -45,9 +45,9 @@ export default class Editor extends React.Component<PropsType, StateType> {
         options={{}}
         editorDidMount={this.editorDidMount}
         requireConfig={{
-          url: '/vs/loader.js',
+          url: '/reactive-konva/vs/loader.js',
           paths: {
-            vs: '/vs',
+            vs: '/reactive-konva/vs',
           }
         }}
       />

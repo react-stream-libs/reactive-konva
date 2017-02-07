@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 export default function templateFunc(props: any) {
+  // count # of / ?
   console.error(props);
   return (
     <html>
@@ -9,7 +10,7 @@ export default function templateFunc(props: any) {
           id="app"
           dangerouslySetInnerHTML={{ __html: props.body}}
         />
-        <script src="/index.js"></script>
+        <script src="/reactive-konva/index.js"></script>
       </body>
     </html>
   )
