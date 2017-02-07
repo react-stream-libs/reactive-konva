@@ -7,11 +7,21 @@ import ParentablePage from './pages/ParentablePage';
 import StageDemoPage from './pages/StageDemoPage';
 
 export default (
-  <Route path="/reactive-konva" component={PageRoot}>
-    <IndexRoute component={IndexPage} />
-    <Route path="parentable" component={ParentablePage} />
-    <Route path="parentable/" component={ParentablePage} />
-    <Route path="stage-demo" component={StageDemoPage} />
-    <Route path="stage-demo/" component={StageDemoPage} />
+
+  <Route path="/">
+    <Route path="reactive-konva" component={PageRoot}>
+      <IndexRoute component={IndexPage} />
+      <Route path="parentable" component={ParentablePage} />
+      <Route path="parentable/" component={ParentablePage} />
+      <Route path="stage-demo" component={StageDemoPage} />
+      <Route path="stage-demo/" component={StageDemoPage} />
+    </Route>
+    <Route path="/" component={PageRoot}>
+      <IndexRoute component={IndexPage} />
+      <Route path="parentable" component={ParentablePage} />
+      <Route path="parentable/" component={ParentablePage} />
+      <Route path="stage-demo" component={StageDemoPage} />
+      <Route path="stage-demo/" component={StageDemoPage} />
+    </Route>
   </Route>
 );
