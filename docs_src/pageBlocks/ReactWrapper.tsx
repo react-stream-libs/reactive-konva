@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
-import Renderer, { RootRenderableType } from '../../src/Renderer';
-import { _RootPropsType } from '../../src/components/Root';
+import ReactiveKonvaRenderer from '../../src/ReactiveKonvaRenderer';
+import { RootRenderableType } from '../../src/tailored-reactive-renderer';
+import { _RootPropsType } from '../../src/components/root';
 
 export type PropsType = {
 
@@ -14,27 +15,27 @@ export type __RootPropsType = Partial<_RootPropsType>;
 
 export default class ReactivePixiReactWrapper
     extends React.Component<PropsType, StateType> {
-  refs: {
+  public refs: {
     [key: string]: HTMLElement;
     containerRef: HTMLCanvasElement;
-  }
-  renderer: Renderer;
-  componentDidMount() {
+  };
+  public renderer: ReactiveKonvaRenderer;
+  public componentDidMount() {
     const containerDOM = findDOMNode<HTMLDivElement>(this.refs.containerRef);
-    this.renderer = new Renderer({
+    this.renderer = new ReactiveKonvaRenderer({
       container: containerDOM,
     });
   }
-  update(renderable: RootRenderableType, rootProps: __RootPropsType) {
-    const _rootProps = {
+  public update(renderable: RootRenderableType, rootProps: __RootPropsType) {
+    const rootPropsToRender = {
       key: '__ROOT__',
       width: 500,
       height: 500,
       ...rootProps,
     };
-    this.renderer.render(renderable, _rootProps);
+    this.renderer.render(renderable, rootPropsToRender);
   }
-  render() {
+  public render() {
     return (
       <div
         ref="containerRef"

@@ -15,8 +15,10 @@ declare module 'react-monaco-editor' {
         vs?: string,
       }
     }
+    onChange?: (newValue: string, e: monaco.editor.IModelContentChangedEvent2) => any,
   };
   export type ICodeEditor = monaco.editor.ICodeEditor;
+  // export const monaco: MonacoType;
   export default class ReactMonacoEditor
       extends Component<ReactMonacoEditorProps, void> { }
 }

@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
-    "declaration": true,
+    "moduleResolution": "node",
+    "declaration": false,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "allowJs": false,
@@ -19,14 +20,19 @@
     "node_modules/**/*.d.ts"
   ],
   "exclude": [
+    "storybook-ts",
     "docs", "docs_src",
     "node_modules",
     "!node_modules/rxjs",
+    "reactive-konva",
+    "reactive-konva.d.ts",
+    "tools",
     "lib",
     "lib_es6",
     "examples",
     "src_old",
     "webpack"
   ],
-  "compileOnSave": false
+  "compileOnSave": false,
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }

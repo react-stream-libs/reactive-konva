@@ -8,27 +8,26 @@
     "allowJs": false,
     "jsx": "react",
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "rootDirs": [
-      "src", "docs_src"
+      "src", "storybook-ts"
     ],
-    "outDir": "docs"
+    "outDir": "docs_ts_processed"
   },
-  "filesGlob": [
-    "src/*.ts",
-    "src/*.tsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "node_modules/**/*.d.ts"
-  ],
   "exclude": [
-    "docs_src",
+    "docs", "docs_src",
+    "docs_ts_processed",
     "node_modules",
     "!node_modules/rxjs",
+    "reactive-konva",
+    "reactive-konva.d.ts",
+    "tools",
     "lib",
     "lib_es6",
     "examples",
     "src_old",
     "webpack"
   ],
-  "compileOnSave": false
+  "compileOnSave": false,
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }

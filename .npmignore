@@ -2,3 +2,4 @@ node_modules
 *.log
 docs
 docs_src
+reactive-konva.d.ts

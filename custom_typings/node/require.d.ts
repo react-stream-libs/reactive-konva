@@ -3,5 +3,3 @@
 interface NodeRequireFunction {
   context: any
 }
-
-declare var test2: NodeRequireFunction;

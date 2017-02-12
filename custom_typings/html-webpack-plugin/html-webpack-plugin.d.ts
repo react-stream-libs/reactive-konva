@@ -1,6 +1,6 @@
 declare module 'html-webpack-plugin' {
   import {
-    Plugin, Webpack,
+    Plugin, Compiler,
   } from 'webpack';
   class HtmlWebpackPlugin implements Plugin{
     constructor (args?: {
@@ -8,7 +8,7 @@ declare module 'html-webpack-plugin' {
       filename?: string,
       template?: string,
     })
-    apply(thisArg: Webpack, ...args: any[]): void;
+    apply(thisArg: Compiler, ...args: any[]): void;
   }
   module HtmlWebpackPlugin { }
   export = HtmlWebpackPlugin;

@@ -1,8 +1,15 @@
-import { Root, _Root } from './Root';
-import { Layer, _Layer } from './Layer';
-import { Rectangle, _Rectangle } from './Rectangle';
+import { root, RootBlueprint } from './root';
+import { circle, CircleBlueprint } from './circle';
+import { layer, LayerBlueprint } from './layer';
+import { rectangle, RectangleBlueprint } from './rectangle';
+import { line, LineBlueprint } from './line';
+import { stage, StageBlueprint } from './stage';
 export {
-  Root, _Root,
-  Layer, _Layer,
-  Rectangle, _Rectangle,
-}
+  root, RootBlueprint,
+
+  circle, CircleBlueprint,
+  layer, LayerBlueprint,
+  rectangle, RectangleBlueprint,
+  line, LineBlueprint,
+  stage, StageBlueprint,
+};

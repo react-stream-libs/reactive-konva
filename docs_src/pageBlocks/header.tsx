@@ -1,27 +1,46 @@
 import * as React from 'react';
 import {
+  withRouter,
+  InjectedRouter,
+} from 'react-router'
+import {
   Navbar,
   Nav, NavDropdown, NavItem,
   MenuItem,
 } from 'react-bootstrap';
-export type PropsType = {
 
+
+export type PropsType = {
+  router?: InjectedRouter,
 };
 export type StateType = {
-
+  routeTo?: string,
 };
+
+@withRouter
 export default class Header extends React.Component<PropsType, StateType> {
-  handleSelect(eventKey: any) {
-    console.error(eventKey);
+  constructor () {
+    super();
+    this.state = {
+    };
+  }
+  handleSelect(routeTo: any) {
+    // this.props.router.push(`/reactive-konva/${routeTo}`);
+    this.setState({ routeTo });
   }
   render() {
     return (
       <Navbar>
-        <Nav bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
-          <NavItem eventKey="1" href="/home">NavItem 1 content</NavItem>
-          <NavItem eventKey="2" title="Item">NavItem 2 content</NavItem>
-          <NavItem eventKey="3" disabled>NavItem 3 content</NavItem>
-          <NavDropdown eventKey="4" title="Dropdown" id="nav-dropdown">
+        <Nav bsStyle="tabs" activeKey={this.state.routeTo} onSelect={(key) => this.handleSelect(key)}>
+          <NavItem eventKey="reactive-konva" href="/reactive-konva">Reactive-Konva</NavItem>
+          <NavDropdown eventKey="4" title="Demos" id="nav-dropdown">
+            <MenuItem eventKey="4.1">Action</MenuItem>
+            <MenuItem eventKey="4.2">Another action</MenuItem>
+            <MenuItem eventKey="4.3">Something else here</MenuItem>
+            <MenuItem divider />
+            <MenuItem eventKey="4.4">Separated link</MenuItem>
+          </NavDropdown>
+          <NavDropdown eventKey="4" title="Examples" id="nav-dropdown">
             <MenuItem eventKey="4.1">Action</MenuItem>
             <MenuItem eventKey="4.2">Another action</MenuItem>
             <MenuItem eventKey="4.3">Something else here</MenuItem>

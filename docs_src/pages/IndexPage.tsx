@@ -1,9 +1,14 @@
 import * as React from 'react';
 import ReactWrapper from '../pageBlocks/ReactWrapper';
-import { Layer } from '../../src/components/Layer';
-import { Rectangle } from '../../src/components/Rectangle';
-import { color } from '../../src/components/Fills';
-// import { Stage } from '../../src/components/Stage';
+import {
+  color, linearGradient,
+  layer,
+  stage,
+  // Group,
+  rectangle,
+  circle,
+  line,
+} from '../../src';
 // import { Paper } from '../../src/components/Graphics/Paper';
 // import { Rectangle } from '../../src/components/Graphics/Rectangle';
 
@@ -14,46 +19,72 @@ export type StateType = {
 };
 
 export default class IndexPage extends React.Component<PropsType, StateType> {
-  rotation: number;
-  refs: {
+  public refs: {
     [key: string]: React.ReactInstance;
     reactWrapper: ReactWrapper;
-  }
+  };
+  private rotation: number;
   constructor(props: PropsType) {
     super(props);
     this.rotation = 0;
   }
-  componentDidmount() {
+  public componentDidmount() {
 
   }
-  rotateBy(angle: number) {
+  public rotateBy(angle: number) {
     this.rotation = this.rotation + angle;
     this.updateGraphics();
   }
-  updateGraphics() {
-
-    const renderable =
-      Layer({
-        key: 'mainStage',
+  public updateGraphics() {
+    const renderable = stage({
+      key: 'mainStage',
+      // container: this.refs.reactWrapper,
+    }, [
+      layer({
+        key: 'layer1',
       }, [
-        Rectangle({
+        // TODO: 순서 바꾸면 update?
+        rectangle({
           key: 'rect',
           x: 0, y: this.rotation,
           height: 50, width: 100,
-          fill: color('#FF00FF'),
+          fill: linearGradient({
+            startX: 0, startY: 0,
+            endX: 100, endY: this.rotation * 10,
+            colorPoints: [{
+              point: 0.0, color: '#00FF00',
+            }, {
+              point: 0.3, color: '#000',
+            },{
+              point: 1.0, color: '#0FF00F',
+            }],
+          })
         }, []),
-        Rectangle({
+        rectangle({
           key: 'rect_still',
           x: 50, y: 20,
           height: 200, width: 200,
           fill: color('#EEAAFF'),
           opacity: 0.2,
         }, []),
-      ]);
+        line({
+          key: 'line1',
+          points: [
+            [1, 0], [100, 100],
+          ],
+        }, []),
+        circle({
+          key: 'circle1',
+          x: 0, y: 50,
+          radius: 100,
+          fill: color('#00FF00'),
+        }, []),
+      ]),
+    ]);
     this.refs.reactWrapper.update(renderable, {});
   }
   componentDidMount() {
-    const Rect = Rectangle;
+    const Rect = rectangle;
     eval(`
       console.error('eval:: this:', this);
       console.error('eval:: Rectangle', Rect);

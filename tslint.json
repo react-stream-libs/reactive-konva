@@ -1,0 +1,66 @@
+{
+  "rulesDirectory": [
+    "node_modules/tslint-microsoft-contrib"
+  ],
+  "extends": "tslint-microsoft-contrib",
+  "rules": {
+    "no-for-in-array": false,
+    "restrict-plus-operands": false,
+    "no-relative-imports": false,
+    "trailing-comma": [
+      true
+    ],
+    "ordered-imports": [
+      false
+    ],
+    "no-empty": false,
+    "no-any": false,
+    "typedef": [
+      false
+    ],
+    "no-inferrable-types": [
+      true
+    ],
+    "no-default-export": false,
+    "no-empty-interface": false,
+    "class-name": false,
+    "variable-name": [
+
+    ],
+    "no-suspicious-comment": false,
+    "no-reserved-keywords": false,
+    "one-line": [
+      true,
+      "check-catch",
+      "check-else",
+      "check-finally",
+      "check-whitespace"
+    ],
+    "align": [
+      true,
+      "parameters",
+      "statements"
+    ],
+    "no-consecutive-blank-lines": [
+      true,
+      2
+    ],
+    "no-void-expression": [
+      true,
+      "ignore-arrow-function-shorthand"
+    ],
+    "completed-docs": [
+      false
+    ],
+    "missing-jsdoc": false,
+    "strict-boolean-expressions": [
+      true,
+      "allow-null-union",
+      "allow-undefined-union"
+    ],
+    "quotemark": [
+      "single",
+      "jsx-double"
+    ]
+  }
+}

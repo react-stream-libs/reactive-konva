@@ -5,7 +5,9 @@ import { browserHistory } from 'react-router';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-import App from './App';
+import {
+  default as App
+} from './app';
 
 const history = browserHistory;
 
