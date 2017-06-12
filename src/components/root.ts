@@ -11,7 +11,8 @@ import {
   _RenderableType,
 } from '../tailored-reactive-renderer';
 
-import { ICommonBlueprintBase } from '../ICommonBlueprintBase';
+import { IContextBase } from 'reactive-renderer';
+import { ICommonBlueprint } from '../ICommonBlueprint';
 
 export type _RootPropsType = {
   width: number, height: number,
@@ -20,10 +21,10 @@ export type _RootPropsType = {
 
 export class NoneExistentNode extends Node { }
 export class NoneExistentBlueprint
-    extends Blueprint<BasePropsType> {
+    extends Blueprint<BasePropsType, IContextBase> {
   public node: NoneExistentNode;
   public reorderChildren() {}
-  public init(parent: Blueprint<BasePropsType>) {}
+  public init(parent: Blueprint<BasePropsType, IContextBase>) {}
   public updateBeforeChildren(props: BasePropsType) {}
   public updateAfterChildren(props: BasePropsType) {}
   public cleanUp() {}
@@ -32,9 +33,9 @@ export class NoneExistentBlueprint
 /**
  * For internal use
  */
-export class RootBlueprint extends Blueprint<_RootPropsType>
-    implements IParentableBy<NoneExistentBlueprint>, ICommonBlueprintBase {
-
+export class RootBlueprint extends Blueprint<_RootPropsType, IContextBase>
+    implements IParentableBy<NoneExistentBlueprint>, ICommonBlueprint {
+  public __EXTENDS_ICOMMON_BLUEPRINT_BASE: null;
   public container: HTMLElement;
   public node: NoneExistentNode;
   constructor(container?: HTMLElement) {

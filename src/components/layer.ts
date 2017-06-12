@@ -6,6 +6,7 @@ import {
 } from 'lodash';
 import {
   BasePropsType,
+  IContextBase,
 } from 'reactive-renderer';
 
 import {
@@ -15,7 +16,7 @@ import {
   _RenderableType,
   InstanceTreeType,
 } from '../tailored-reactive-renderer';
-import { ICommonBlueprintBase } from '../ICommonBlueprintBase';
+import { ICommonBlueprint } from '../ICommonBlueprint';
 import { NodePropsType, applyNodeProps } from '../props/node';
 
 import { StageBlueprint } from './stage';
@@ -26,7 +27,7 @@ export type LayerPropsType = {
 } & NodePropsType
  & BasePropsType;
 
-export class LayerBlueprint extends Blueprint<BasePropsType>
+export class LayerBlueprint extends Blueprint<BasePropsType, IContextBase>
     implements IParentableBy<LayerParentType> {
   public node: KonvaLayer;
   public prevProps: LayerPropsType;
@@ -73,5 +74,5 @@ export {
   BaseBlueprint,
   _IParentableBy as IParentableBy,
   _RenderableType as RenderableType,
-  ICommonBlueprintBase,
+  ICommonBlueprint,
 };

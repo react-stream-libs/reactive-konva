@@ -8,6 +8,7 @@ import {
 
 import {
   BaseBlueprint,
+  IContextBase,
 } from 'reactive-renderer';
 
 import {
@@ -18,7 +19,7 @@ import {
   _RenderableType,
   InstanceTreeType,
 } from '../tailored-reactive-renderer';
-import { ICommonBlueprintBase } from '../ICommonBlueprintBase';
+import { ICommonBlueprint } from '../ICommonBlueprint';
 
 import { LayerBlueprint } from './layer';
 import { GroupBlueprint } from './group';
@@ -39,7 +40,7 @@ export type LinePropsType = {
 & BasePropsType
 ;
 
-export class LineBlueprint extends Blueprint<LinePropsType>
+export class LineBlueprint extends Blueprint<LinePropsType, IContextBase>
     implements IParentableBy<LineParentType> {
   public node: KonvaLine;
   private parent: LayerBlueprint | GroupBlueprint;
@@ -78,5 +79,5 @@ export {
   BaseBlueprint,
   _IParentableBy,
   _RenderableType,
-  ICommonBlueprintBase,
+  ICommonBlueprint,
 };

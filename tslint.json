@@ -57,10 +57,6 @@
       true,
       "allow-null-union",
       "allow-undefined-union"
-    ],
-    "quotemark": [
-      "single",
-      "jsx-double"
     ]
   }
 }

@@ -4,6 +4,7 @@ import {
 
 import {
   BasePropsType,
+  IContextBase,
 } from 'reactive-renderer';
 
 import {
@@ -13,7 +14,7 @@ import {
   InstanceTreeType,
   _RenderableType,
 } from '../tailored-reactive-renderer';
-import { ICommonBlueprintBase } from '../ICommonBlueprintBase';
+import { ICommonBlueprint } from '../ICommonBlueprint';
 
 import { LayerBlueprint } from './layer';
 import { GroupBlueprint } from './group';
@@ -29,7 +30,7 @@ export type RectanglePropsType = {
 & NodePropsType
 ;
 
-export class RectangleBlueprint extends Blueprint<RectanglePropsType>
+export class RectangleBlueprint extends Blueprint<RectanglePropsType, IContextBase>
     implements IParentableBy<RectangleParentType> {
   public node: KonvaRectangle;
   public prevProps: RectanglePropsType;
@@ -68,5 +69,5 @@ export {
   _RenderableType,
   BaseBlueprint,
   _IParentableBy,
-  ICommonBlueprintBase,
+  ICommonBlueprint,
 };

@@ -11,7 +11,10 @@ import {
   IParentableBy, _IParentableBy,
   createComponent,
 } from '../tailored-reactive-renderer';
-import { ICommonBlueprintBase } from '../ICommonBlueprintBase';
+import {
+  IContextBase,
+} from 'reactive-renderer';
+import { ICommonBlueprint } from '../ICommonBlueprint';
 import { LayerBlueprint } from './layer';
 import {
   BaseBlueprint,
@@ -27,7 +30,7 @@ export type GroupPropsType = {
 } & NodePropsType
   & BasePropsType;
 
-export class GroupBlueprint extends Blueprint<GroupPropsType>
+export class GroupBlueprint extends Blueprint<GroupPropsType, IContextBase>
     implements IParentableBy<GroupParentType> {
   public node: KonvaGroup;
   public prevProps: GroupPropsType;
@@ -72,5 +75,5 @@ export {
   RenderableType,
   _IParentableBy,
   BaseBlueprint,
-  ICommonBlueprintBase,
+  ICommonBlueprint,
 };

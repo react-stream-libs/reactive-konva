@@ -11,7 +11,8 @@ import {
   _RenderableType,
   InstanceTreeType,
 } from '../tailored-reactive-renderer';
-import { ICommonBlueprintBase } from '../ICommonBlueprintBase';
+import { IContextBase } from 'reactive-renderer';
+import { ICommonBlueprint } from '../ICommonBlueprint';
 
 import { LayerBlueprint } from './layer';
 import { applyStyleProps, StylePropsType } from '../props/style';
@@ -28,7 +29,7 @@ export type CirclePropsType = {
 & NodePropsType
 ;
 
-export class CircleBlueprint extends Blueprint<BasePropsType>
+export class CircleBlueprint extends Blueprint<BasePropsType, IContextBase>
     implements IParentableBy<CircleParentType> {
   public node: KonvaCircle;
   private parent: LayerBlueprint;
@@ -67,5 +68,5 @@ export {
   _RenderableType,
   _IParentableBy,
   BaseBlueprint,
-  ICommonBlueprintBase,
+  ICommonBlueprint,
 };

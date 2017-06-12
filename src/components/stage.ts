@@ -7,6 +7,7 @@ import {
   BaseBlueprint,
   BasePropsType,
   RenderableType,
+  IContextBase,
 } from 'reactive-renderer';
 
 import {
@@ -16,7 +17,7 @@ import {
   InstanceTreeType,
   _IParentableBy,
 } from '../tailored-reactive-renderer';
-import { ICommonBlueprintBase } from '../ICommonBlueprintBase';
+import { ICommonBlueprint } from '../ICommonBlueprint';
 import { NodePropsType, applyNodeProps } from '../props/node';
 
 import { RootBlueprint } from './root';
@@ -27,7 +28,7 @@ export type _StagePropsType = {
 } & NodePropsType
   & BasePropsType;
 
-export class StageBlueprint extends Blueprint<_StagePropsType>
+export class StageBlueprint extends Blueprint<_StagePropsType, IContextBase>
     implements IParentableBy<RootBlueprint> {
   public node: KonvaStage;
   private prevProps: _StagePropsType;
@@ -93,5 +94,5 @@ export {
   RenderableType,
   BaseBlueprint,
   _IParentableBy as IParentableBy,
-  ICommonBlueprintBase,
+  ICommonBlueprint,
 };
