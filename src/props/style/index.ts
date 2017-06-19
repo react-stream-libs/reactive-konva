@@ -10,8 +10,7 @@ export type StylePropsType = {
 }
 
 export function applyStyleProps(shape: Shape, style: StylePropsType = {}) {
-  debugger;
-  style.fill ? applyFill(shape, style.fill) : null;
+  style.fill && applyFill(shape, style.fill);
   applyStroke(shape, style.stroke || {});
   shape.opacity(style.opacity || 1);
   shape.skewX(style.skewX || 0);

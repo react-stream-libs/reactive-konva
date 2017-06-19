@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ReactWrapper from '../pageBlocks/ReactWrapper';
+
 import {
   color, linearGradient,
   layer,
@@ -8,7 +9,7 @@ import {
   rectangle,
   circle,
   line,
-} from '../../src';
+} from 'reactive-konva-src';
 // import { Paper } from '../../src/components/Graphics/Paper';
 // import { Rectangle } from '../../src/components/Graphics/Rectangle';
 
@@ -84,12 +85,12 @@ export default class IndexPage extends React.Component<PropsType, StateType> {
     this.refs.reactWrapper.update(renderable, {});
   }
   componentDidMount() {
-    const Rect = rectangle;
+    const rect = rectangle;
     eval(`
       console.error('eval:: this:', this);
       console.error('eval:: Rectangle', Rect);
     `);
-    console.error('rect', Rect);
+    console.error('rect', rect);
     this.updateGraphics();
   }
   render() {

@@ -12,16 +12,22 @@
     "rootDirs": [
       "src", "storybook-ts"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "reactive-konva-src": ["src/index.ts"]
+    },
     "outDir": "docs_ts_processed"
   },
   "exclude": [
-    "docs", "docs_src",
+    "docs_src",
+    "docs",
     "docs_ts_processed",
     "node_modules",
     "!node_modules/rxjs",
     "reactive-konva",
     "reactive-konva.d.ts",
     "tools",
+    "types",
     "lib",
     "lib_es6",
     "examples",

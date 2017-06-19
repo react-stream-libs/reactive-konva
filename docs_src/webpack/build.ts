@@ -1,7 +1,6 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
-// import * as ReactStaticPlugin from 'react-static-webpack-plugin';
-// import * as CopyWebpackPlugin from 'copy-webpack-plugin';
+import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: {
@@ -16,20 +15,19 @@ const config: webpack.Configuration = {
     libraryTarget: 'umd',
   },
   plugins: [
-    // new CopyWebpackPlugin([{
-    //   from: 'node_modules/monaco-editor/min/vs',
-    //   to: 'vs',
-    // }]),
-    // new ReactStaticPlugin({
-    //   routes: path.resolve(__dirname, '../Routes.tsx'),
-    //   template: path.resolve(__dirname, '../template.tsx'),
-    // }),
+    new CopyWebpackPlugin([{
+      from: 'node_modules/monaco-editor/min/vs',
+      to: 'vs',
+    }]),
   ],
   resolve: {
     extensions: [
       '.js', '.es6', '.jsx',
       '.ts', '.tsx',
     ],
+    alias: {
+      'reactive-konva-src': path.resolve(__dirname, '../../src'),
+    }
   },
   devtool: 'inline-source-map',
   module: {

@@ -72,7 +72,7 @@ export class StageBlueprint extends Blueprint<_StagePropsType, IContextBase>
       }
     }
     applyNodeProps(this.node, props);
-    if (this.prevProps.container !== props.container) {
+    if (this.prevProps && this.prevProps.container !== props.container) {
       this.node.setContainer(props.container);
     }
   }

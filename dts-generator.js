@@ -38,7 +38,7 @@ function convertFilePath(params) {
 dtsGen({
   name: 'reactive-konva',
   project: 'tsconfig.lib.json',
-  out: 'reactive-konva.d.ts',
+  out: 'types/reactive-konva.d.ts',
   resolveModuleId: convertFilePath,
   resolveModuleImport: convertImportPath,
 });

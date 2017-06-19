@@ -11,7 +11,10 @@ import {
   _RenderableType,
 } from '../tailored-reactive-renderer';
 
-import { IContextBase } from 'reactive-renderer';
+import {
+  IContextBase,
+  BasePropsType as ___BasePropsType,
+} from 'reactive-renderer';
 import { ICommonBlueprint } from '../ICommonBlueprint';
 
 export type _RootPropsType = {
@@ -61,4 +64,5 @@ export {
   _RenderableType as RenderableType,
   _IParentableBy as IParentableBy,
   BaseBlueprint,
+  ___BasePropsType,
 };

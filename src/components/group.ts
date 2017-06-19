@@ -34,16 +34,16 @@ export class GroupBlueprint extends Blueprint<GroupPropsType, IContextBase>
     implements IParentableBy<GroupParentType> {
   public node: KonvaGroup;
   public prevProps: GroupPropsType;
-  private parent: LayerBlueprint | GroupBlueprint;
+  protected parent: LayerBlueprint | GroupBlueprint;
   public init(parent: LayerBlueprint | GroupBlueprint) {
     this.node = new KonvaGroup();
     this.parent = parent;
     parent.node.add(this.node);
   }
 
-  public updateBeforeChildren(props: GroupPropsType) {
+  public updateBeforeChildren(props: GroupPropsType, context?: IContextBase) {
   }
-  public updateAfterChildren(props: GroupPropsType) {
+  public updateAfterChildren(props: GroupPropsType, context?: IContextBase) {
     applyNodeProps(this.node, props);
   }
   public reorderChildren(

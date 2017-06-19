@@ -13,13 +13,13 @@ export type NodePropsType = {
 };
 
 export function applyNodeProps(node: Node, nodeProps: NodePropsType) {
-  node.x(nodeProps.x || 0);
-  node.y(nodeProps.y || 0);
-  node.width(nodeProps.width || 100);
-  node.height(nodeProps.height || 100);
-  node.scaleX(nodeProps.scaleX || 1);
-  node.scaleY(nodeProps.scaleY || 1);
-  node.opacity(nodeProps.opacity || 1);
-  node.filters(nodeProps.filters || []);
-  node.rotation(nodeProps.rotationDegrees || 0);
+  nodeProps.x && node.x(nodeProps.x);
+  nodeProps.y && node.y(nodeProps.y);
+  nodeProps.width && node.width(nodeProps.width);
+  nodeProps.height && node.height(nodeProps.height);
+  nodeProps.scaleX && node.scaleX(nodeProps.scaleX);
+  nodeProps.scaleY && node.scaleY(nodeProps.scaleY);
+  nodeProps.opacity && node.opacity(nodeProps.opacity);
+  nodeProps.filters && node.filters(nodeProps.filters);
+  nodeProps.rotationDegrees && node.rotation(nodeProps.rotationDegrees);
 }

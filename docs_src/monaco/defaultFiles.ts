@@ -40,7 +40,7 @@ const konvaContents = _.concat(
 .join('\n');
 debugger;
 files['konva.d.ts'] = konvaContents;
-const reactiveKonvaDtsFile = require('!raw-loader!../../reactive-konva.d.ts');
+const reactiveKonvaDtsFile = require('!raw-loader!../../types/reactive-konva.d.ts');
 files['reactive-konva.d.ts'] = reactiveKonvaDtsFile;
 files['reactive-renderer.d.ts'] = require('!raw-loader!../../node_modules/reactive-renderer/reactive-renderer.d.ts')
 files['globalizer.d.ts'] = `

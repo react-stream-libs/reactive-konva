@@ -3,17 +3,20 @@ import {
 } from 'konva';
 import {
   BaseBlueprint,
-  BasePropsType,
-  BaseRootRenderableType,
+  BasePropsType as _BasePropsType,
   IParentableBy as _IParentableBy,
   RenderableType as _RenderableType,
   createComponent as _createComponent,
+  createComponentWithContext as _createComponentWithContext,
+  ComponentType as _ComponentType,
   InstanceTreeType as _InstanceTreeType,
   IContextBase,
 } from 'reactive-renderer';
 import { ICommonBlueprint } from './ICommonBlueprint';
-import { RootBlueprint } from './components/root';
 
+export type BasePropsType = {
+
+} & _BasePropsType;
 export abstract class Blueprint<
       PropsType extends BasePropsType
       , IContext extends IContextBase
@@ -46,6 +49,18 @@ export type RenderableType<
   IContext
 >;
 
+export type ComponentType<
+  BlueprintClass extends Blueprint<PropsType, IContextBase> &
+    IParentableBy<ParentableTypes> &
+    ICommonBlueprint,
+  ParentableTypes extends Blueprint<BasePropsType, IContextBase>,
+  PropsType extends BasePropsType,
+> = _ComponentType<
+  BlueprintClass
+  , ParentableTypes
+  , PropsType
+  , ICommonBlueprint
+>;
 
 export function createComponent<
   BlueprintClass extends Blueprint<PropsType, IContextBase> &
@@ -66,17 +81,31 @@ export function createComponent<
   >(blueprintClass);
 }
 
+export function createComponentWithContext<
+  BlueprintClass extends Blueprint<PropsType, IContextBase> &
+    IParentableBy<ParentableTypes>
+  ,
+  ParentableTypes extends Blueprint<BasePropsType, IContextBase>,
+  PropsType extends BasePropsType,
+  IContext extends IContextBase
+>(
+  blueprintClass: {
+    new(): BlueprintClass & IParentableBy<ParentableTypes>
+  },
+) {
+  return _createComponentWithContext<
+    BlueprintClass,
+    ParentableTypes,
+    PropsType,
+    ICommonBlueprint,
+    IContext
+  >(blueprintClass);
+}
+
 export type InstanceTreeType = _InstanceTreeType<ICommonBlueprint>;
 
-export type RootRenderableType = BaseRootRenderableType<
-  RootBlueprint,
-  ICommonBlueprint,
-  IContextBase
->;
-
-
 export {
-  BasePropsType,
+  _BasePropsType,
   _RenderableType,
   _IParentableBy,
   BaseBlueprint,

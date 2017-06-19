@@ -7,6 +7,7 @@ import {
 } from 'konva';
 
 import {
+  BasePropsType as ___BasePropsType,
   BaseBlueprint,
   IContextBase,
 } from 'reactive-renderer';
@@ -80,4 +81,5 @@ export {
   _IParentableBy,
   _RenderableType,
   ICommonBlueprint,
+  ___BasePropsType,
 };

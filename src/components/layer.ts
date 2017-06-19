@@ -23,9 +23,14 @@ import { StageBlueprint } from './stage';
 
 export type LayerParentType = StageBlueprint;
 
-export type LayerPropsType = {
-} & NodePropsType
- & BasePropsType;
+export class As<S extends string> {
+   private as: S;
+   public meaningLessFuncForTsNoUnusedLocal() { return this.as && this.as; }
+}
+export type LayerPropsType = NodePropsType & {
+  width?: number & As<"Konva.Layer does not receive width">
+  height?: number & As<"Konva.Layer does not receive height">
+} & BasePropsType;
 
 export class LayerBlueprint extends Blueprint<BasePropsType, IContextBase>
     implements IParentableBy<LayerParentType> {

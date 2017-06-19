@@ -1,3 +1,4 @@
+import * as path from 'path';
 import * as webpack from 'webpack';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 
@@ -13,6 +14,9 @@ const config: webpack.Configuration = {
       '.js', '.es6', '.jsx',
       '.ts', '.tsx',
     ],
+    alias: {
+      'reactive-konva-src': path.resolve(__dirname, '../src'),
+    }
   },
   devtool: 'inline-source-map',
   module: {

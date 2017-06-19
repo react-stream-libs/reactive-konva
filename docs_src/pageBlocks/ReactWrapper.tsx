@@ -1,8 +1,14 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
-import ReactiveKonvaRenderer from '../../src/ReactiveKonvaRenderer';
-import { RootRenderableType } from '../../src/tailored-reactive-renderer';
-import { _RootPropsType } from '../../src/components/root';
+import {
+  IContextBase,
+} from 'reactive-renderer';
+import {
+  RootRenderer,
+  RootBlueprint,
+  _RootPropsType,
+  RootRenderableType,
+} from 'reactive-konva-src';
 
 export type PropsType = {
 
@@ -13,17 +19,22 @@ export type StateType = {
 
 export type __RootPropsType = Partial<_RootPropsType>;
 
-export default class ReactivePixiReactWrapper
+const context: IContextBase = {
+  __EXTENDS_ICONTEXT_BASE: null,
+};
+export default class ReactiveKonvaReactWrapper
     extends React.Component<PropsType, StateType> {
   public refs: {
     [key: string]: HTMLElement;
     containerRef: HTMLCanvasElement;
   };
-  public renderer: ReactiveKonvaRenderer;
+  public renderer: RootRenderer;
   public componentDidMount() {
     const containerDOM = findDOMNode<HTMLDivElement>(this.refs.containerRef);
-    this.renderer = new ReactiveKonvaRenderer({
-      container: containerDOM,
+    const rootInstance = new RootBlueprint(containerDOM);
+    this.renderer = new RootRenderer({
+      instance: rootInstance,
+      key: 'root'
     });
   }
   public update(renderable: RootRenderableType, rootProps: __RootPropsType) {
@@ -33,7 +44,7 @@ export default class ReactivePixiReactWrapper
       height: 500,
       ...rootProps,
     };
-    this.renderer.render(renderable, rootPropsToRender);
+    this.renderer.render(renderable, context, rootPropsToRender);
   }
   public render() {
     return (

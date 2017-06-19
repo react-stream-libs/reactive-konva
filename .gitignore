@@ -6,7 +6,7 @@ dist
 docs_src/*.js
 docs_src/**/*.js
 docs
-reactive-konva.d.ts
+types
 docs_ts_processed
 storybook-built
 *.log
