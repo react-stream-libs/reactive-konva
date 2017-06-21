@@ -5,7 +5,7 @@ import {
   BaseBlueprint,
   BasePropsType as _BasePropsType,
   IParentableBy as _IParentableBy,
-  RenderableType as _RenderableType,
+  Renderable as _Renderable,
   createComponent as _createComponent,
   createComponentWithContext as _createComponentWithContext,
   ComponentType as _ComponentType,
@@ -34,20 +34,20 @@ export interface IParentableBy<
 
 }
 
-export type RenderableType<
+export class Renderable<
   PropsType extends BasePropsType,
   _Blueprint extends
     Blueprint<BasePropsType, IContext>,
   ParentableBy extends
     Blueprint<BasePropsType, IContextBase>,
   IContext extends IContextBase
-> = _RenderableType<
+> extends _Renderable<
   PropsType,
   _Blueprint,
   ParentableBy,
   ICommonBlueprint,
   IContext
->;
+> {}
 
 export type ComponentType<
   BlueprintClass extends Blueprint<PropsType, IContextBase> &
@@ -106,7 +106,7 @@ export type InstanceTreeType = _InstanceTreeType<ICommonBlueprint>;
 
 export {
   _BasePropsType,
-  _RenderableType,
+  _Renderable,
   _IParentableBy,
   BaseBlueprint,
 };

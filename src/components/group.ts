@@ -19,7 +19,7 @@ import { LayerBlueprint } from './layer';
 import {
   BaseBlueprint,
   BasePropsType,
-  RenderableType,
+  Renderable,
 } from 'reactive-renderer';
 
 import { NodePropsType, applyNodeProps } from '../props/node';
@@ -72,7 +72,7 @@ export const group = createComponent<GroupBlueprint, GroupParentType, GroupProps
 export default group;
 
 export {
-  RenderableType,
+  Renderable,
   _IParentableBy,
   BaseBlueprint,
   ICommonBlueprint,

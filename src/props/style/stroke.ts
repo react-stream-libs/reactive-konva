@@ -4,7 +4,7 @@ import {
 
 export type StrokeType = {
   disableScale?: boolean,
-  disable?: boolean,
+  disabled?: boolean,
   disableShadow?: boolean,
   color?: string,
   width?: number,

@@ -6,7 +6,7 @@ import { Stage as KonvaStage } from 'konva';
 import {
   BaseBlueprint,
   BasePropsType,
-  RenderableType,
+  Renderable,
   IContextBase,
 } from 'reactive-renderer';
 
@@ -91,7 +91,7 @@ export const stage = createComponent<StageBlueprint, RootBlueprint, _StagePropsT
 export default stage;
 
 export {
-  RenderableType,
+  Renderable,
   BaseBlueprint,
   _IParentableBy as IParentableBy,
   ICommonBlueprint,

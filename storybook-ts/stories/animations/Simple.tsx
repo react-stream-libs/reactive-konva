@@ -6,6 +6,7 @@ import {
   Scheduler,
 } from 'rxjs';
 import RxReactKonvaWrapper from '../../components/RxReactKonvaWrapper';
+import fpsMeter from '../../components/fpsMeter';
 import {
   stage,
   layer,
@@ -39,6 +40,12 @@ export function getSimpleAnimationStory(baseName: string) { // tslint:disable ex
                     key: 'layer',
                     x: 0, y: 0,
                   }, [
+                    fpsMeter({
+                      maxMeterGraphs: 10,
+                      key: 'fpsMeter',
+                    }, [], {
+                      __EXTENDS_ICONTEXT_BASE: null,
+                    }),
                     rectangle({
                       key: 'rect',
                       x: 0, y: 0,

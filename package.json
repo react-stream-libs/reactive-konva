@@ -68,7 +68,7 @@
     "react-router": "^3.0.2",
     "react-static-webpack-plugin": "^2.1.0",
     "react-style-streamed-elem": "git+ssh://git@github.com/react-stream-libs/react-style-streamed-elem.git#dist_feature/test-ref-direct_15",
-    "reactive-renderer": "git+ssh://git@github.com/react-stream-libs/reactive-renderer.git#dist_feature/add-context---babelrc-test_114",
+    "reactive-renderer": "git+ssh://git@github.com/react-stream-libs/reactive-renderer.git#dist_feature/RenderableClass-for-better-debugging_133",
     "recompose": "^0.23.5",
     "rxjs": "^5.4.1",
     "sass-loader": "^4.1.1",

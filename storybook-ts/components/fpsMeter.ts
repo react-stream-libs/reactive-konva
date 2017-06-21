@@ -5,17 +5,18 @@ import {
   BaseBlueprint,
   BasePropsType,
   IParentableBy as __IParentableBy,
-  RenderableType as __RenderableType,
+  Renderable as __Renderable,
 } from 'reactive-renderer';
 import {
   GroupBasedCustomBlueprint,
   GroupPropsType, GroupParentType,
   createComponentWithContext,
   group,
-  rectangle,
+  circle,
   GroupBlueprint,
   LayerBlueprint,
   ICommonBlueprint,
+  color,
 } from 'reactive-konva-src';
 
 export type FPSMeterPropsType = {
@@ -57,8 +58,10 @@ export class FPSMeterBlueprint
       group({
         key: 'OuterBoxGroup',
       }, [
-        rectangle({
+        circle({
+          radius: 100,
           key: 'outerBoxRect',
+          x: 100, y: 10,
           ...props,
           color: 'black',
         }, [])
@@ -74,6 +77,8 @@ export const fpsMeter = createComponentWithContext<
   IRequiredContext
 > (FPSMeterBlueprint);
 
+export default fpsMeter;
+
 // export to satisfy tsconfig definition option.
 export {
   GroupBlueprint as ___GroupBlueprint,
@@ -81,7 +86,7 @@ export {
   BasePropsType as ___BasePropsType,
   ICommonBlueprint as ___ICommonBlueprint,
   __IParentableBy,
-  __RenderableType,
+  __Renderable,
   LayerBlueprint as ___LayerBlueprint,
   ___Filters,
 };

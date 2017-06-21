@@ -8,7 +8,7 @@ import {
   createComponent,
   IParentableBy,
   _IParentableBy,
-  _RenderableType,
+  _Renderable,
 } from '../tailored-reactive-renderer';
 
 import {
@@ -61,7 +61,7 @@ export const root = createComponent<RootBlueprint, NoneExistentBlueprint, _RootP
 export default root;
 
 export {
-  _RenderableType as RenderableType,
+  _Renderable as RenderableType,
   _IParentableBy as IParentableBy,
   BaseBlueprint,
   ___BasePropsType,

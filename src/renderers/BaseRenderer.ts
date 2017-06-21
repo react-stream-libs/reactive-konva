@@ -61,14 +61,12 @@ abstract class BaseRenderer<
     props: PropsType,
   ) {
     this.instanceTree.instance.applyInitialProps(props, context);
-    this.instanceTree.instance.updateBeforeChildren(props, context);
     const renderRoot = this.topLevelComponent(Object.assign({}, props, {
       key: this.getFullKey(props.key),
     }), compact([
       toRender,
     ]));
     renderChild(this.instanceTree, renderRoot, context);
-    this.instanceTree.instance.updateAfterChildren(props, context);
   }
   public dispose() {
     this.instanceTree.instance.cleanUp();

@@ -13,7 +13,7 @@ import {
   Blueprint, BaseBlueprint,
   createComponent,
   IParentableBy, _IParentableBy,
-  _RenderableType,
+  _Renderable,
   InstanceTreeType,
 } from '../tailored-reactive-renderer';
 import { ICommonBlueprint } from '../ICommonBlueprint';
@@ -78,6 +78,6 @@ export default layer;
 export {
   BaseBlueprint,
   _IParentableBy as IParentableBy,
-  _RenderableType as RenderableType,
+  _Renderable as RenderableType,
   ICommonBlueprint,
 };

@@ -65,7 +65,7 @@ const config: webpack.Configuration = {
       }, {
         test: /\.woff2$/,
         loader: 'url-loader?limit=10000&mimetype=application/font-woff&name=[name].[ext]',
-      },{
+      }, {
         test: /\.ttf$/,
         loader: 'file-loader?name=[name].[ext]',
       }, {
@@ -80,5 +80,6 @@ const config: webpack.Configuration = {
       },
     ],
   },
-}
+};
+
 module.exports = config;

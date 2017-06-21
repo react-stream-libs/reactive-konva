@@ -12,7 +12,7 @@ import {
   IParentableBy, _IParentableBy,
   createComponent,
   InstanceTreeType,
-  _RenderableType,
+  _Renderable,
 } from '../tailored-reactive-renderer';
 import { ICommonBlueprint } from '../ICommonBlueprint';
 
@@ -66,7 +66,7 @@ export const rectangle = createComponent<
 export default rectangle;
 
 export {
-  _RenderableType,
+  _Renderable,
   BaseBlueprint,
   _IParentableBy,
   ICommonBlueprint,

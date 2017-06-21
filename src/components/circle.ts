@@ -8,7 +8,7 @@ import {
   Blueprint,
   createComponent,
   IParentableBy, _IParentableBy,
-  _RenderableType,
+  _Renderable,
   InstanceTreeType,
 } from '../tailored-reactive-renderer';
 import {
@@ -18,10 +18,11 @@ import {
 import { ICommonBlueprint } from '../ICommonBlueprint';
 
 import { LayerBlueprint } from './layer';
+import { GroupBlueprint } from './group';
 import { applyStyleProps, StylePropsType } from '../props/style';
 import { applyNodeProps, NodePropsType } from '../props/node';
 
-export type CircleParentType = LayerBlueprint;
+export type CircleParentType = LayerBlueprint & GroupBlueprint;
 
 export type CirclePropsType = {
   radius: number,
@@ -35,8 +36,8 @@ export type CirclePropsType = {
 export class CircleBlueprint extends Blueprint<BasePropsType, IContextBase>
     implements IParentableBy<CircleParentType> {
   public node: KonvaCircle;
-  private parent: LayerBlueprint;
-  public init(parent: LayerBlueprint) {
+  private parent: CircleParentType;
+  public init(parent: CircleParentType) {
     this.node = new KonvaCircle({
       radius: 0,
     });
@@ -68,7 +69,7 @@ export const circle = createComponent<CircleBlueprint, CircleParentType, CircleP
 export default circle;
 
 export {
-  _RenderableType,
+  _Renderable,
   _IParentableBy,
   BaseBlueprint,
   ICommonBlueprint,

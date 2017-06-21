@@ -56,7 +56,7 @@ export default class IndexPage extends React.Component<PropsType, StateType> {
               point: 0.0, color: '#00FF00',
             }, {
               point: 0.3, color: '#000',
-            },{
+            }, {
               point: 1.0, color: '#0FF00F',
             }],
           })

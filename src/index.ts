@@ -3,7 +3,7 @@ import GroupRenderer, { GroupRenderableType } from './renderers/GroupRenderer';
 import {
   Blueprint,
   IParentableBy,
-  RenderableType,
+  Renderable,
   ComponentType,
   createComponent,
   createComponentWithContext,
@@ -40,7 +40,7 @@ export {
 
   Blueprint,
   IParentableBy,
-  RenderableType,
+  Renderable,
   ComponentType,
   createComponent,
   createComponentWithContext,

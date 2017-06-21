@@ -1,9 +1,6 @@
 import {
-  flatten,
-} from 'lodash';
-
-import {
-  Line as KonvaLine,
+  Text as KonvaText,
+  TextConfig as KonvaTextConfig,
 } from 'konva';
 
 import {
@@ -27,41 +24,38 @@ import { GroupBlueprint } from './group';
 import { applyStyleProps, StylePropsType } from '../props/style';
 import { applyNodeProps, NodePropsType } from '../props/node';
 
-export type LineParentType = LayerBlueprint & GroupBlueprint;
+export type TextParentType = LayerBlueprint & GroupBlueprint;
 
-export type LinePointType = [number, number];
-export type LinePropsType = {
-  points: LinePointType[],
-  lineJoin?: 'round' | 'meter' | 'bevel',
-  closed?: boolean,
-  tension?: number,
+export type TextPropsType = KonvaTextConfig &
+{
+  align?: 'left' | 'center' | 'right' | 'justify',
+  fontStyle?: 'normal' | 'italic' | 'bold',
 }
-& StylePropsType
-& NodePropsType
-& BasePropsType
+  & StylePropsType
+  & NodePropsType
+  & BasePropsType
 ;
 
-export class LineBlueprint extends Blueprint<LinePropsType, IContextBase>
-    implements IParentableBy<LineParentType> {
-  public node: KonvaLine;
+export class TextBlueprint extends Blueprint<TextPropsType, IContextBase>
+    implements IParentableBy<TextParentType> {
+  public node: KonvaText;
   private parent: LayerBlueprint | GroupBlueprint;
-  public init(parent: LineParentType) {
-    this.node = new KonvaLine({
-      points: [],
-    });
+  public init(parent: TextParentType) {
+    this.node = new KonvaText({ text: '' });
     this.parent = parent;
     this.parent.node.add(this.node);
   }
-  public updateBeforeChildren(props: LinePropsType) {
-    const linePoints = flatten(props.points);
+  public updateBeforeChildren(props: TextPropsType) {
     const { node } = this;
-    node.points(linePoints);
-    node.closed(props.closed);
-    node.tension(props.tension || 0);
+    node.align(props.align);
+    props.fontFamily && node.fontFamily(props.fontFamily);
+    props.fontSize && node.fontSize(props.fontSize);
+    node.fontStyle(props.fontStyle || 'normal');
+    node.text(props.text);
     applyStyleProps(node, props);
     applyNodeProps(node, props);
   }
-  public updateAfterChildren(props: LinePropsType) {
+  public updateAfterChildren(props: TextPropsType) {
   }
   public reorderChildren(
     oldChildrenList: InstanceTreeType[],
@@ -74,9 +68,9 @@ export class LineBlueprint extends Blueprint<LinePropsType, IContextBase>
   }
 }
 
-export const line = createComponent<LineBlueprint, LineParentType, LinePropsType>(LineBlueprint);
+export const text = createComponent<TextBlueprint, TextParentType, TextPropsType>(TextBlueprint);
 
-export default line;
+export default text;
 
 export {
   BaseBlueprint,
